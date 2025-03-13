@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medical Admin Portal</title>
+  <link rel="stylesheet" href="css/login.css">
+  <link rel="icon" href="img/compicontrans.png">
+</head>
+<body>
+  <div class="login-container" id="login-form">
+    <div class="logo">
+      <img src="/img/compicontrans.png" alt="Hospital Logo">
+    </div>
+    <h1>Hartford Medical Portal</h1>
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="email" id="username" placeholder="Email address" value="admin@hospital.org">
+      <div class="error-message" id="username-error">Please enter a valid email address.</div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Enter your password">
+      <div class="error-message" id="password-error">Password is required.</div>
+    </div>
+    <button id="login-button">Log In</button>
+    <div class="forgot-links">
+      <a href="#" id="forgot-username">Forgot Username</a>
+      <a href="#" id="forgot-password">Forgot Password</a>
+    </div>
+    <div class="create-account">
+      Don't have an account? <a href="register.html" id="create-account-link">Create one here</a>
+    </div>
+  </div>
+
+
+  <div class="login-container code-verification" id="verification-form">
+    <h1>Two-Factor Authentication</h1>
+    <p>Please enter the 6-digit verification code sent to your device.</p>
+    <div class="form-group">
+      <label for="verification-code">Verification Code</label>
+      <input type="text" id="verification-code" placeholder="6-digit code" maxlength="6">
+      <div class="error-message" id="code-error">Please enter a valid 6-digit code.</div>
+    </div>
+    <button id="verify-button">Verify</button>
+    <div class="forgot-links">
+      <a href="#" id="resend-code">Resend Code</a>
+      <a href="#" id="back-to-login">Back to Login</a>
+    </div>
+  </div>
+
+  <div class="login-container security-questions" id="security-form">
+    <h1>Recover Password</h1>
+    <p>Please answer your security questions to reset your password.</p>
+
+    <div class="security-question">
+      <label for="question1">What was the name of your first pet?</label>
+      <input type="text" id="question1" placeholder="Answer">
+    </div>
+
+    <div class="security-question">
+      <label for="question2">What was the name of the first school you attended?</label>
+      <input type="text" id="question2" placeholder="Answer">
+    </div>
+
+    <div class="security-question">
+      <label for="question3">What was the make and model of your first car?</label>
+      <input type="text" id="question3" placeholder="Answer">
+    </div>
+
+    <button id="recover-button">Recover Password</button>
+    <div class="forgot-links">
+      <a href="#" id="back-to-login-2">Back to Login</a>
+    </div>
+  </div>
+
+  <div class="login-container security-questions" id="username-recovery">
+    <h1>Recover Username</h1>
+    <p>Please enter your registered email address to recover your username.</p>
+
+    <div class="form-group">
+      <label for="recovery-email">Email Address</label>
+      <input type="email" id="recovery-email" placeholder="Enter your email">
+    </div>
+
+    <button id="recover-username-button">Recover Username</button>
+    <div class="forgot-links">
+      <a href="#" id="back-to-login-3">Back to Login</a>
+    </div>
+  </div>
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="legal-notice">
+        <a href="#" id="privacy-policy">Privacy Policy</a> |
+        <a href="#" id="terms-of-service">Terms of Service</a> |
+        <a href="#" id="accessibility">Accessibility</a>
+      </div>
+      <div class="copyright">
+        &copy; 2025 Hartford Medical Portal. Created by Corbin Babcock for Northeastern University.
+      </div>
+    </div>
+  </footer>
+</body>
+<button class="settings-button" id="settings-toggle">Appearance Settings</button>
+
+<div class="settings-panel" id="settings-panel">
+  <div class="settings-group">
+    <h3>Color Theme</h3>
+    <div class="color-option" style="background-color: #1976d2;" data-theme="default"></div>
+    <div class="color-option" style="background-color: #8e24aa;" data-theme="purple"></div>
+    <div class="color-option" style="background-color: #2e7d32;" data-theme="green"></div>
+    <div class="color-option" style="background-color: #d32f2f;" data-theme="red"></div>
+    <div class="color-option" style="background-color: #f57c00;" data-theme="orange"></div>
+  </div>
+
+  <div class="settings-group">
+    <h3>Mode</h3>
+    <label class="toggle-switch">
+      <input type="checkbox" id="dark-mode-toggle">
+      <span class="slider"></span>
+      Dark Mode
+    </label>
+    <label class="toggle-switch">
+      <input type="checkbox" id="high-contrast-toggle">
+      <span class="slider"></span>
+      High Contrast
+    </label>
+  </div>
+
+  <div class="settings-group">
+    <h3>Colorblind Support</h3>
+    <button id="protanopia">Protanopia</button>
+    <button id="deuteranopia">Deuteranopia</button>
+    <button id="tritanopia">Tritanopia</button>
+    <button id="normal-color">Normal</button>
+  </div>
+
+  <div class="settings-group">
+    <h3>Font Size</h3>
+    <div class="font-size-buttons">
+      <button id="font-decrease">A-</button>
+      <button id="font-default">Reset</button>
+      <button id="font-increase">A+</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/login.js"></script>
+</body>
+</html>

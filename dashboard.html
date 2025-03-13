@@ -1,0 +1,2725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hartford Medical Dashboard</title>
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="icon" href="img/compicontrans.png">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div class="container">
+  <!-- Sidebar Navigation -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <img src="/img/compicon.png" alt="Hospital Logo">
+      <h2>Hartford Medical Portal</h2>
+    </div>
+    <ul class="sidebar-menu">
+      <li><a href="#dashboard" class="active"><i>📊</i> Dashboard</a></li>
+      <li><a href="#notifications"><i>🔔</i> Notifications</a></li>
+      <li><a href="#calendar"><i>📅</i> Calendar</a></li>
+      <li><a href="#appointments"><i>🕒</i> Appointments</a></li>
+      <li><a href="#summary"><i>📋</i> Visitation Summary</a></li>
+      <li><a href="#patients"><i>👥</i> Patients</a></li>
+      <li><a href="#doctors"><i>👨‍⚕️</i> Doctors</a></li>
+      <li><a href="#reports"><i>📈</i> Reports</a></li>
+      <li><a href="#settings"><i>⚙️</i> Settings</a></li>
+    </ul>
+    <div class="sidebar-footer">
+      <a href="index.html" class="logout-button"><i>🚪</i> Logout</a>
+    </div>
+  </aside>
+
+  <!-- Main Content Area -->
+  <main class="main-content">
+    <div class="header">
+      <h1>Dashboard</h1>
+      <div class="user-info">
+        <img src="https://img.freepik.com/premium-photo/thumbs-up-portrait-doctor-man-healthcare-support-thank-you-excellence-hospital-services-medical-professional-saudi-arabia-person-like-yes-ok-hand-emoji-clinic-success_590464-210666.jpg" alt="Admin Avatar">
+        <span>Admin User</span>
+      </div>
+    </div>
+
+    <!-- Dashboard View (default) -->
+    <div id="dashboard-view">
+      <!-- Quick Stats Widgets -->
+      <div class="widgets">
+        <div class="widget">
+          <h3>Today's Appointments</h3>
+          <p style="font-size: 32px; margin: 10px 0;">24</p>
+          <p>5 check-ins completed</p>
+        </div>
+        <div class="widget">
+          <h3>Pending Approvals</h3>
+          <p style="font-size: 32px; margin: 10px 0;">7</p>
+          <p>Insurance verifications needed</p>
+        </div>
+        <div class="widget">
+          <h3>Available Doctors</h3>
+          <p style="font-size: 32px; margin: 10px 0;">12/15</p>
+          <p>3 doctors on leave today</p>
+        </div>
+        <!-- Notifications Widget Update -->
+        <div class="widget notifications-widget">
+          <div class="widget-header">
+            <h3>Notifications</h3>
+            <button class="action-btn small check-in">Mark All as Read</button>
+          </div>
+
+          <div class="notifications-scroll-container">
+            <div class="notifications-list">
+              <!-- Notification Item 1 -->
+              <div class="notification-item unread">
+                <div class="notification-icon">📅</div>
+                <div class="notification-content">
+                  <div class="notification-title">Schedule Change Request</div>
+                  <div class="notification-message">Dr. Sarah Johnson requested a schedule change for March 15, 2025</div>
+                  <div class="notification-time">10 minutes ago</div>
+                </div>
+                <div class="notification-actions">
+                  <button class="action-btn small check-in">Accept</button>
+                  <button class="action-btn small cancel">Deny</button>
+                </div>
+              </div>
+
+              <!-- Notification Item 2 -->
+              <div class="notification-item unread">
+                <div class="notification-icon">📋</div>
+                <div class="notification-content">
+                  <div class="notification-title">Insurance Protocol Update</div>
+                  <div class="notification-message">New insurance verification protocol available. Review by March 15.</div>
+                  <div class="notification-time">30 minutes ago</div>
+                </div>
+                <div class="notification-actions">
+                  <button class="action-btn small check-in">View</button>
+                </div>
+              </div>
+
+              <!-- Notification Item 3 -->
+              <div class="notification-item unread">
+                <div class="notification-icon">👤</div>
+                <div class="notification-content">
+                  <div class="notification-title">Patient Records Need Updating</div>
+                  <div class="notification-message">5 patient records need demographic information updates</div>
+                  <div class="notification-time">1 hour ago</div>
+                </div>
+                <div class="notification-actions">
+                  <button class="action-btn small check-in">Review</button>
+                </div>
+              </div>
+
+              <!-- Notification Item 4 -->
+              <div class="notification-item">
+                <div class="notification-icon">🧪</div>
+                <div class="notification-content">
+                  <div class="notification-title">Lab Results Available</div>
+                  <div class="notification-message">Lab results for John Smith are available for review</div>
+                  <div class="notification-time">2 hours ago</div>
+                </div>
+                <div class="notification-actions">
+                  <button class="action-btn small check-in">View Results</button>
+                </div>
+              </div>
+
+              <!-- Notification Item 5 -->
+              <div class="notification-item">
+                <div class="notification-icon">💊</div>
+                <div class="notification-content">
+                  <div class="notification-title">Prescription Refill Request</div>
+                  <div class="notification-message">Emily Davis has requested a refill for Lisinopril 10mg</div>
+                  <div class="notification-time">3 hours ago</div>
+                </div>
+                <div class="notification-actions">
+                  <button class="action-btn small check-in">Process</button>
+                  <button class="action-btn small cancel">Deny</button>
+                </div>
+              </div>
+
+              <div class="notification-item more-notifications">
+                <div class="notification-content">
+                  <div class="notification-title more-count">+5 more notifications</div>
+                  <div class="notification-message">Including prescription refills, system updates, and other alerts</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="widget-footer">
+            <a href="#notifications" class="view-all-link">View all notifications</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Appointments Filter Buttons -->
+      <div class="view-filters">
+        <button class="active" data-view="day">Day</button>
+        <button data-view="week">Week</button>
+        <button data-view="month">Month</button>
+      </div>
+
+      <!-- Appointments Table -->
+      <div class="appointments">
+        <h2>Today's Appointments</h2>
+        <table>
+          <thead>
+          <tr>
+            <th>Patient Name</th>
+            <th>Age/DOB</th>
+            <th>Insurance</th>
+            <th>PCM</th>
+            <th>Doctor</th>
+            <th>Reason</th>
+            <th>Check-in Time</th>
+            <th>Check-out Time</th>
+            <th>Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>John Smith</td>
+            <td>42 (05/15/1982)</td>
+            <td><span class="status approved">Approved</span></td>
+            <td>Dr. Williams</td>
+            <td>Dr. Sarah Johnson</td>
+            <td>Annual Physical</td>
+            <td>9:00 AM</td>
+            <td>9:45 AM</td>
+            <td>
+              <button class="action-btn check-in">Check In</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Emily Davis</td>
+            <td>35 (11/22/1989)</td>
+            <td><span class="status approved">Approved</span></td>
+            <td>Dr. Thompson</td>
+            <td>Dr. Michael Chen</td>
+            <td>Diabetes Follow-up</td>
+            <td>9:30 AM</td>
+            <td>10:15 AM</td>
+            <td>
+              <button class="action-btn check-in">Check In</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Robert Johnson</td>
+            <td>58 (03/07/1966)</td>
+            <td><span class="status pending">Pending</span></td>
+            <td>Dr. Roberts</td>
+            <td>Dr. James Wilson</td>
+            <td>Cardiac Evaluation</td>
+            <td>10:00 AM</td>
+            <td>11:00 AM</td>
+            <td>
+              <button class="action-btn reschedule">Reschedule</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Lisa Williams</td>
+            <td>29 (07/19/1995)</td>
+            <td><span class="status approved">Approved</span></td>
+            <td>Dr. Garcia</td>
+            <td>Dr. Emily Rodriguez</td>
+            <td>Prenatal Checkup</td>
+            <td>10:30 AM</td>
+            <td>11:15 AM</td>
+            <td>
+              <button class="action-btn check-in">Check In</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Michael Brown</td>
+            <td>47 (01/30/1977)</td>
+            <td><span class="status approved">Approved</span></td>
+            <td>Dr. Wilson</td>
+            <td>Dr. Robert Thompson</td>
+            <td>Back Pain</td>
+            <td>11:00 AM</td>
+            <td>11:45 AM</td>
+            <td>
+              <button class="action-btn check-in">Check In</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Jennifer Miller</td>
+            <td>63 (09/12/1961)</td>
+            <td><span class="status declined">Declined</span></td>
+            <td>Dr. Anderson</td>
+            <td>Dr. Lisa Clark</td>
+            <td>Arthritis Follow-up</td>
+            <td>11:30 AM</td>
+            <td>12:15 PM</td>
+            <td>
+              <button class="action-btn cancel">Cancel</button>
+            </td>
+          </tr>
+          <tr>
+            <td>David Wilson</td>
+            <td>52 (04/25/1972)</td>
+            <td><span class="status approved">Approved</span></td>
+            <td>Dr. Martinez</td>
+            <td>Dr. David Lee</td>
+            <td>Hypertension Follow-up</td>
+            <td>1:00 PM</td>
+            <td>1:45 PM</td>
+            <td>
+              <button class="action-btn check-in">Check In</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Sarah Garcia</td>
+            <td>31 (08/05/1993)</td>
+            <td><span class="status approved">Approved</span></td>
+            <td>Dr. Lewis</td>
+            <td>Dr. Sarah Johnson</td>
+            <td>Allergy Consultation</td>
+            <td>1:30 PM</td>
+            <td>2:15 PM</td>
+            <td>
+              <button class="action-btn check-in">Check In</button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Notifications Tab -->
+    <div id="notifications-view" style="display: none;">
+
+      <div class="widget">
+        <div class="widget-header">
+          <h3>All Notifications</h3>
+          <button class="action-btn check-in">Mark All as Read</button>
+        </div>
+
+        <div class="notifications-list">
+          <div class="notification-item unread">
+            <div class="notification-icon">📅</div>
+            <div class="notification-content">
+              <div class="notification-title">Schedule Change Request</div>
+              <div class="notification-message">Dr. Sarah Johnson requested a schedule change for March 15, 2025</div>
+              <div class="notification-time">10 minutes ago</div>
+            </div>
+            <div class="notification-actions">
+              <button class="action-btn check-in">Approve</button>
+              <button class="action-btn cancel">Deny</button>
+            </div>
+          </div>
+
+          <div class="notification-item unread">
+            <div class="notification-icon">📋</div>
+            <div class="notification-content">
+              <div class="notification-title">Insurance Protocol Update</div>
+              <div class="notification-message">New insurance verification protocol available. Review and implement by March 15.</div>
+              <div class="notification-time">30 minutes ago</div>
+            </div>
+            <div class="notification-actions">
+              <button class="action-btn check-in">View</button>
+            </div>
+          </div>
+
+          <div class="notification-item unread">
+            <div class="notification-icon">👤</div>
+            <div class="notification-content">
+              <div class="notification-title">Patient Records Need Updating</div>
+              <div class="notification-message">5 patient records need demographic information updates before their next appointments</div>
+              <div class="notification-time">1 hour ago</div>
+            </div>
+            <div class="notification-actions">
+              <button class="action-btn check-in">Review</button>
+            </div>
+          </div>
+
+          <div class="notification-item unread">
+            <div class="notification-icon">🧪</div>
+            <div class="notification-content">
+              <div class="notification-title">Lab Results Available</div>
+              <div class="notification-message">Lab results for John Smith are available for review</div>
+              <div class="notification-time">2 hours ago</div>
+            </div>
+            <div class="notification-actions">
+              <button class="action-btn check-in">View Results</button>
+            </div>
+          </div>
+
+          <div class="notification-item unread">
+            <div class="notification-icon">💊</div>
+            <div class="notification-content">
+              <div class="notification-title">Prescription Refill Request</div>
+              <div class="notification-message">Emily Davis has requested a refill for Lisinopril 10mg</div>
+              <div class="notification-time">3 hours ago</div>
+            </div>
+            <div class="notification-actions">
+              <button class="action-btn check-in">Process</button>
+              <button class="action-btn cancel">Deny</button>
+            </div>
+          </div>
+
+          <div class="notification-item">
+            <div class="notification-icon">🏥</div>
+            <div class="notification-content">
+              <div class="notification-title">Equipment Maintenance</div>
+              <div class="notification-message">Regular equipment maintenance scheduled for Room 304 on March 2, 2025</div>
+              <div class="notification-time">5 hours ago</div>
+            </div>
+            <div class="notification-actions">
+              <button class="action-btn check-in">View Details</button>
+            </div>
+          </div>
+
+          <div class="notification-item">
+            <div class="notification-icon">📊</div>
+            <div class="notification-content">
+              <div class="notification-title">Monthly Report Ready</div>
+              <div class="notification-message">February 2025 patient visits report is ready for review</div>
+              <div class="notification-time">Yesterday</div>
+            </div>
+            <div class="notification-actions">
+              <button class="action-btn check-in">View Report</button>
+            </div>
+          </div>
+
+          <div class="notification-item">
+            <div class="notification-icon">👨‍⚕️</div>
+            <div class="notification-content">
+              <div class="notification-title">New Provider Added</div>
+              <div class="notification-message">Dr. Jennifer Parker has been added to the Pediatrics department</div>
+              <div class="notification-time">Yesterday</div>
+            </div>
+            <div class="notification-actions">
+              <button class="action-btn check-in">View Profile</button>
+            </div>
+          </div>
+
+          <div class="notification-item">
+            <div class="notification-icon">⚠️</div>
+            <div class="notification-content">
+              <div class="notification-title">System Maintenance</div>
+              <div class="notification-message">Scheduled system maintenance on March 5, 2025 from 2AM-4AM</div>
+              <div class="notification-time">2 days ago</div>
+            </div>
+            <div class="notification-actions">
+              <button class="action-btn check-in">Acknowledge</button>
+            </div>
+          </div>
+
+          <div class="notification-item">
+            <div class="notification-icon">📱</div>
+            <div class="notification-content">
+              <div class="notification-title">Patient Portal Update</div>
+              <div class="notification-message">Patient portal will be updated with new features on March 10, 2025</div>
+              <div class="notification-time">2 days ago</div>
+            </div>
+            <div class="notification-actions">
+              <button class="action-btn check-in">Learn More</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Calendar View -->
+    <div id="calendar-view" class="calendar-view">
+      <div class="calendar-header">
+        <div class="calendar-nav">
+          <button id="prev-month">◀</button>
+        </div>
+        <h2>February 2025</h2>
+        <div class="calendar-nav">
+          <button id="next-month">▶</button>
+        </div>
+      </div>
+
+      <div class="calendar-weekdays">
+        <div class="calendar-weekday">Sun</div>
+        <div class="calendar-weekday">Mon</div>
+        <div class="calendar-weekday">Tue</div>
+        <div class="calendar-weekday">Wed</div>
+        <div class="calendar-weekday">Thu</div>
+        <div class="calendar-weekday">Fri</div>
+        <div class="calendar-weekday">Sat</div>
+      </div>
+
+      <div class="calendar-grid">
+        <!-- Week 1 -->
+        <div class="calendar-day"></div>
+        <div class="calendar-day"></div>
+        <div class="calendar-day"></div>
+        <div class="calendar-day"></div>
+        <div class="calendar-day"></div>
+        <div class="calendar-day">
+          <div class="calendar-day-number">1</div>
+          <div class="calendar-event">Dr. Johnson - 3 pts</div>
+        </div>
+        <div class="calendar-day">
+          <div class="calendar-day-number">2</div>
+        </div>
+
+        <!-- Week 2 -->
+        <div class="calendar-day">
+          <div class="calendar-day-number">3</div>
+        </div>
+        <div class="calendar-day">
+          <div class="calendar-day-number">4</div>
+          <div class="calendar-event">Dr. Chen - 8 pts</div>
+          <div class="calendar-event">Dr. Wilson - 5 pts</div>
+        </div>
+        <div class="calendar-day">
+          <div class="calendar-day-number">5</div>
+          <div class="calendar-event">Dr. Lee - 6 pts</div>
+        </div>
+        <div class="calendar-day">
+          <div class="calendar-day-number">6</div>
+          <div class="calendar-event">Dr. Johnson - 4 pts</div>
+        </div>
+        <div class="calendar-day">
+          <div class="calendar-day-number">7</div>
+          <div class="calendar-event">Dr. Clark - 7 pts</div>
+        </div>
+        <div class="calendar-day">
+          <div class="calendar-day-number">8</div>
+          <div class="calendar-event">Dr. Rodriguez - 3 pts</div>
+        </div>
+        <div class="calendar-day">
+          <div class="calendar-day-number">9</div>
+        </div>
+
+        <!-- Week 3 -->
+        <div class="calendar-day">
+          <div class="calendar-day-number">10</div>
+        </div>
+        <div class="calendar-day">
+          <div class="calendar-day-number">11</div>
+          <div class="calendar-event">Dr. Chen - 7 pts</div>
+        </div>
+        <div class="calendar-day">
+          <div class="calendar-day-number">12</div>
+          <div class="calendar-event">Dr. Wilson - 5 pts</div>
+        </div>
+        <div class="calendar-day">
+          <div class="calendar-day-number">13</div>
+          <div class="calendar-event">Dr. Lee - 4 pts</div>
+        </div>
+        <div class="calendar-day">
+          <div class="calendar-day-number">14</div>
+          <div class="calendar-event">Dr. Thompson - 8 pts</div>
+        </div>
+        <div class="calendar-day">
+          <div class="calendar-day-number">15</div>
+          <div class="calendar-event">Staff Meeting - 1PM</div>
+        </div>
+        <div class="calendar-day">
+          <div class="calendar-day-number">16</div>
+        </div>
+
+        <!-- Week 4 -->
+        <div class="calendar-day">
+          <div class="calendar-day-number">17</div>
+        </div>
+        <div class="calendar-day">
+          <div class="calendar-day-number">18</div>
+          <div class="calendar-event">Dr. Rodriguez - 6 pts</div>
+        </div>
+        <div class="calendar-day">
+          <div class="calendar-day-number">19</div>
+          <div class="calendar-event">Dr. Clark - 5 pts</div>
+        </div>
+        <div class="calendar-day">
+          <div class="calendar-day-number">20</div>
+          <div class="calendar-event">Dr. Johnson - 7 pts</div>
+        </div>
+        <div class="calendar-day">
+          <div class="calendar-day-number">21</div>
+          <div class="calendar-event">Dr. Chen - 6 pts</div>
+        </div>
+        <div class="calendar-day">
+          <div class="calendar-day-number">22</div>
+          <div class="calendar-event">Dr. Wilson - 4 pts</div>
+        </div>
+        <div class="calendar-day">
+          <div class="calendar-day-number">23</div>
+        </div>
+
+        <!-- Week 5 -->
+        <div class="calendar-day">
+          <div class="calendar-day-number">24</div>
+        </div>
+        <div class="calendar-day">
+          <div class="calendar-day-number">25</div>
+          <div class="calendar-event">Dr. Lee - 5 pts</div>
+        </div>
+        <div class="calendar-day">
+          <div class="calendar-day-number">26</div>
+          <div class="calendar-event">Dr. Thompson - 7 pts</div>
+        </div>
+        <div class="calendar-day">
+          <div class="calendar-day-number">27</div>
+          <div class="calendar-event">Dr. Johnson - 6 pts</div>
+        </div>
+        <div class="calendar-day today">
+          <div class="calendar-day-number">28</div>
+          <div class="calendar-event">Dr. Rodriguez - 8 pts</div>
+          <div class="calendar-event">Dr. Chen - 6 pts</div>
+          <div class="calendar-event">Dr. Clark - 7 pts</div>
+        </div>
+        <div class="calendar-day"></div>
+        <div class="calendar-day"></div>
+      </div>
+    </div>
+
+    <!-- New Appointment Form -->
+    <div id="appointment-form" style="display: none;">
+
+      <div class="form-container">
+        <div class="form-section">
+          <h3>Patient Information</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="patient-select">Select Patient</label>
+              <select id="patient-select">
+                <option value="">-- Select Patient --</option>
+                <option value="P10042">John Smith</option>
+                <option value="P10056">Emily Davis</option>
+                <option value="P10078">Robert Johnson</option>
+                <option value="P10083">Lisa Williams</option>
+                <option value="P10092">Michael Brown</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Patient ID</label>
+              <input type="text" disabled placeholder="Auto-filled">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Insurance</label>
+              <input type="text" disabled placeholder="Auto-filled">
+            </div>
+            <div class="form-group">
+              <label>PCM</label>
+              <input type="text" disabled placeholder="Auto-filled">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h3>Appointment Details</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="appt-reason">Reason for Visit</label>
+              <select id="appt-reason">
+                <option value="">-- Select Reason --</option>
+                <option value="physical">Annual Physical</option>
+                <option value="followup">Follow-up</option>
+                <option value="illness">Illness</option>
+                <option value="injury">Injury</option>
+                <option value="consultation">Consultation</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="appt-type">Appointment Type</label>
+              <select id="appt-type">
+                <option value="">-- Select Type --</option>
+                <option value="standard">Standard (30 min)</option>
+                <option value="extended">Extended (45 min)</option>
+                <option value="brief">Brief (15 min)</option>
+                <option value="procedure">Procedure (60 min)</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="appt-date">Date</label>
+              <input type="date" id="appt-date">
+            </div>
+            <div class="form-group">
+              <label for="appt-time">Time</label>
+              <input type="time" id="appt-time">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="doctor-select">Provider</label>
+              <select id="doctor-select">
+                <option value="">-- Select Provider --</option>
+                <option value="D1001">Dr. Sarah Johnson - Family Medicine</option>
+                <option value="D1002">Dr. Michael Chen - Endocrinology</option>
+                <option value="D1004">Dr. Emily Rodriguez - OB/GYN</option>
+                <option value="D1005">Dr. Robert Thompson - Orthopedics</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="notes">Notes</label>
+              <textarea id="notes" rows="3" placeholder="Add any additional notes here"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-buttons">
+          <button class="action-btn cancel">Cancel</button>
+          <button class="action-btn check-in">Schedule Appointment</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Visitation Summary (hidden by default) -->
+    <div id="summary-view" class="visitation-summary">
+
+      <div class="summary-filters">
+        <select id="doctor-filter">
+          <option value="">All Doctors</option>
+          <option value="dr-johnson">Dr. Sarah Johnson</option>
+          <option value="dr-chen">Dr. Michael Chen</option>
+          <option value="dr-wilson">Dr. James Wilson</option>
+          <option value="dr-rodriguez">Dr. Emily Rodriguez</option>
+          <option value="dr-thompson">Dr. Robert Thompson</option>
+          <option value="dr-clark">Dr. Lisa Clark</option>
+          <option value="dr-lee">Dr. David Lee</option>
+        </select>
+
+        <select id="reason-filter">
+          <option value="">All Visit Reasons</option>
+          <option value="physical">Annual Physical</option>
+          <option value="diabetes">Diabetes Follow-up</option>
+          <option value="cardiac">Cardiac Evaluation</option>
+          <option value="prenatal">Prenatal Checkup</option>
+          <option value="pain">Pain Management</option>
+          <option value="arthritis">Arthritis Treatment</option>
+          <option value="hypertension">Hypertension Follow-up</option>
+          <option value="allergy">Allergy Consultation</option>
+        </select>
+
+        <select id="insurance-filter">
+          <option value="">All Insurance Status</option>
+          <option value="approved">Approved</option>
+          <option value="pending">Pending</option>
+          <option value="declined">Declined</option>
+        </select>
+
+        <input type="date" id="date-from" name="date-from">
+        <input type="date" id="date-to" name="date-to">
+
+        <button class="action-btn check-in">Apply Filters</button>
+        <button class="action-btn cancel">Reset</button>
+      </div>
+
+      <table>
+        <thead>
+        <tr>
+          <th>Date</th>
+          <th>Patient Name</th>
+          <th>Doctor</th>
+          <th>Reason</th>
+          <th>Duration</th>
+          <th>Insurance</th>
+          <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>Feb 27, 2025</td>
+          <td>John Smith</td>
+          <td>Dr. Sarah Johnson</td>
+          <td>Annual Physical</td>
+          <td>45 min</td>
+          <td><span class="status approved">Approved</span></td>
+          <td>Completed</td>
+        </tr>
+        <tr>
+          <td>Feb 27, 2025</td>
+          <td>Emily Davis</td>
+          <td>Dr. Michael Chen</td>
+          <td>Diabetes Follow-up</td>
+          <td>30 min</td>
+          <td><span class="status approved">Approved</span></td>
+          <td>Completed</td>
+        </tr>
+        <tr>
+          <td>Feb 26, 2025</td>
+          <td>Robert Johnson</td>
+          <td>Dr. James Wilson</td>
+          <td>Cardiac Evaluation</td>
+          <td>60 min</td>
+          <td><span class="status approved">Approved</span></td>
+          <td>Completed</td>
+        </tr>
+        <tr>
+          <td>Feb 26, 2025</td>
+          <td>Lisa Williams</td>
+          <td>Dr. Emily Rodriguez</td>
+          <td>Prenatal Checkup</td>
+          <td>45 min</td>
+          <td><span class="status approved">Approved</span></td>
+          <td>Completed</td>
+        </tr>
+        <tr>
+          <td>Feb 25, 2025</td>
+          <td>Michael Brown</td>
+          <td>Dr. Robert Thompson</td>
+          <td>Back Pain</td>
+          <td>45 min</td>
+          <td><span class="status approved">Approved</span></td>
+          <td>Completed</td>
+        </tr>
+        <tr>
+          <td>Feb 25, 2025</td>
+          <td>Jennifer Miller</td>
+          <td>Dr. Lisa Clark</td>
+          <td>Arthritis Follow-up</td>
+          <td>30 min</td>
+          <td><span class="status approved">Approved</span></td>
+          <td>Completed</td>
+        </tr>
+        <tr>
+          <td>Feb 24, 2025</td>
+          <td>David Wilson</td>
+          <td>Dr. David Lee</td>
+          <td>Hypertension Follow-up</td>
+          <td>45 min</td>
+          <td><span class="status approved">Approved</span></td>
+          <td>Completed</td>
+        </tr>
+        <tr>
+          <td>Feb 24, 2025</td>
+          <td>Sarah Garcia</td>
+          <td>Dr. Sarah Johnson</td>
+          <td>Allergy Consultation</td>
+          <td>45 min</td>
+          <td><span class="status approved">Approved</span></td>
+          <td>Completed</td>
+        </tr>
+        <tr>
+          <td>Feb 23, 2025</td>
+          <td>Thomas Anderson</td>
+          <td>Dr. Michael Chen</td>
+          <td>Diabetes Follow-up</td>
+          <td>30 min</td>
+          <td><span class="status approved">Approved</span></td>
+          <td>Completed</td>
+        </tr>
+        <tr>
+          <td>Feb 23, 2025</td>
+          <td>Michelle Lee</td>
+          <td>Dr. James Wilson</td>
+          <td>Cardiac Evaluation</td>
+          <td>60 min</td>
+          <td><span class="status approved">Approved</span></td>
+          <td>Completed</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Patient Management -->
+    <div id="patients-view" style="display: none;">
+      <div class="widget">
+        <!-- Action bar with Add button and Search -->
+        <div class="directory-actions">
+          <button class="action-btn check-in">Add New Patient</button>
+          <div class="search-container">
+            <input type="text" placeholder="Search patients..." class="search-input">
+            <button class="action-btn check-in">Search</button>
+          </div>
+        </div>
+        <table>
+          <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>DOB</th>
+            <th>Contact</th>
+            <th>Insurance</th>
+            <th>PCM</th>
+            <th>Last Visit</th>
+            <th>Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>P10042</td>
+            <td>John Smith</td>
+            <td>05/15/1982</td>
+            <td>(555) 123-4567</td>
+            <td>Blue Cross</td>
+            <td>Dr. Williams</td>
+            <td>Feb 27, 2025</td>
+            <td>
+              <button class="action-btn check-in">View</button>
+              <button class="action-btn reschedule">Edit</button>
+            </td>
+          </tr>
+          <tr>
+            <td>P10056</td>
+            <td>Emily Davis</td>
+            <td>11/22/1989</td>
+            <td>(555) 987-6543</td>
+            <td>Aetna</td>
+            <td>Dr. Thompson</td>
+            <td>Feb 27, 2025</td>
+            <td>
+              <button class="action-btn check-in">View</button>
+              <button class="action-btn reschedule">Edit</button>
+            </td>
+          </tr>
+          <tr>
+            <td>P10078</td>
+            <td>Robert Johnson</td>
+            <td>03/07/1966</td>
+            <td>(555) 456-7890</td>
+            <td>Medicare</td>
+            <td>Dr. Roberts</td>
+            <td>Feb 26, 2025</td>
+            <td>
+              <button class="action-btn check-in">View</button>
+              <button class="action-btn reschedule">Edit</button>
+            </td>
+          </tr>
+          <tr>
+            <td>P10083</td>
+            <td>Lisa Williams</td>
+            <td>07/19/1995</td>
+            <td>(555) 234-5678</td>
+            <td>United Health</td>
+            <td>Dr. Garcia</td>
+            <td>Feb 26, 2025</td>
+            <td>
+              <button class="action-btn check-in">View</button>
+              <button class="action-btn reschedule">Edit</button>
+            </td>
+          </tr>
+          <tr>
+            <td>P10092</td>
+            <td>Michael Brown</td>
+            <td>01/30/1977</td>
+            <td>(555) 876-5432</td>
+            <td>Cigna</td>
+            <td>Dr. Wilson</td>
+            <td>Feb 25, 2025</td>
+            <td>
+              <button class="action-btn check-in">View</button>
+              <button class="action-btn reschedule">Edit</button>
+            </td>
+          </tr>
+          <tr>
+            <td>P10095</td>
+            <td>Jennifer Miller</td>
+            <td>09/12/1961</td>
+            <td>(555) 345-6789</td>
+            <td>Humana</td>
+            <td>Dr. Anderson</td>
+            <td>Feb 25, 2025</td>
+            <td>
+              <button class="action-btn check-in">View</button>
+              <button class="action-btn reschedule">Edit</button>
+            </td>
+          </tr>
+          <tr>
+            <td>P10102</td>
+            <td>David Wilson</td>
+            <td>04/25/1972</td>
+            <td>(555) 567-8901</td>
+            <td>Medicare</td>
+            <td>Dr. Martinez</td>
+            <td>Feb 24, 2025</td>
+            <td>
+              <button class="action-btn check-in">View</button>
+              <button class="action-btn reschedule">Edit</button>
+            </td>
+          </tr>
+          <tr>
+            <td>P10115</td>
+            <td>Sarah Garcia</td>
+            <td>08/05/1993</td>
+            <td>(555) 678-9012</td>
+            <td>Blue Cross</td>
+            <td>Dr. Lewis</td>
+            <td>Feb 24, 2025</td>
+            <td>
+              <button class="action-btn check-in">View</button>
+              <button class="action-btn reschedule">Edit</button>
+            </td>
+          </tr>
+          <tr>
+            <td>P10123</td>
+            <td>Thomas Anderson</td>
+            <td>12/10/1985</td>
+            <td>(555) 789-0123</td>
+            <td>Aetna</td>
+            <td>Dr. Parker</td>
+            <td>Feb 23, 2025</td>
+            <td>
+              <button class="action-btn check-in">View</button>
+              <button class="action-btn reschedule">Edit</button>
+            </td>
+          </tr>
+          <tr>
+            <td>P10138</td>
+            <td>Michelle Lee</td>
+            <td>06/15/1979</td>
+            <td>(555) 890-1234</td>
+            <td>United Health</td>
+            <td>Dr. Rodriguez</td>
+            <td>Feb 23, 2025</td>
+            <td>
+              <button class="action-btn check-in">View</button>
+              <button class="action-btn reschedule">Edit</button>
+            </td>
+          </tr>
+          <tr>
+            <td>P10142</td>
+            <td>James Taylor</td>
+            <td>10/30/1957</td>
+            <td>(555) 901-2345</td>
+            <td>Medicare</td>
+            <td>Dr. Wilson</td>
+            <td>Feb 22, 2025</td>
+            <td>
+              <button class="action-btn check-in">View</button>
+              <button class="action-btn reschedule">Edit</button>
+            </td>
+          </tr>
+          <tr>
+            <td>P10156</td>
+            <td>Jessica Martinez</td>
+            <td>03/25/1990</td>
+            <td>(555) 012-3456</td>
+            <td>Cigna</td>
+            <td>Dr. Thompson</td>
+            <td>Feb 22, 2025</td>
+            <td>
+              <button class="action-btn check-in">View</button>
+              <button class="action-btn reschedule">Edit</button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <div class="pagination">
+          <button>Previous</button>
+          <span>Page 1 of 12</span>
+          <button>Next</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Doctor Management -->
+    <div id="doctors-view" style="display: none;">
+      <div class="widget">
+        <!-- Header for Provider Management -->
+        <!-- Action bar with Add button and Search -->
+        <div class="directory-actions">
+          <button class="action-btn check-in">Add New Provider</button>
+          <div class="search-container">
+            <input type="text" placeholder="Search providers..." class="search-input">
+            <button class="action-btn check-in">Search</button>
+          </div>
+        </div>
+        <table>
+          <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Specialty</th>
+            <th>Contact</th>
+            <th>Room</th>
+            <th>Status</th>
+            <th>Patients Today</th>
+            <th>Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>D1001</td>
+            <td>Dr. Sarah Johnson</td>
+            <td>Family Medicine</td>
+            <td>(555) 111-2222</td>
+            <td>304</td>
+            <td><span class="status approved">Available</span></td>
+            <td>8</td>
+            <td>
+              <button class="action-btn check-in">View</button>
+              <button class="action-btn reschedule">Schedule</button>
+            </td>
+          </tr>
+          <tr>
+            <td>D1002</td>
+            <td>Dr. Michael Chen</td>
+            <td>Endocrinology</td>
+            <td>(555) 222-3333</td>
+            <td>218</td>
+            <td><span class="status approved">Available</span></td>
+            <td>6</td>
+            <td>
+              <button class="action-btn check-in">View</button>
+              <button class="action-btn reschedule">Schedule</button>
+            </td>
+          </tr>
+          <tr>
+            <td>D1003</td>
+            <td>Dr. James Wilson</td>
+            <td>Cardiology</td>
+            <td>(555) 333-4444</td>
+            <td>210</td>
+            <td><span class="status declined">On Leave</span></td>
+            <td>0</td>
+            <td>
+              <button class="action-btn check-in">View</button>
+              <button class="action-btn reschedule">Schedule</button>
+            </td>
+          </tr>
+          <tr>
+            <td>D1004</td>
+            <td>Dr. Emily Rodriguez</td>
+            <td>OB/GYN</td>
+            <td>(555) 444-5555</td>
+            <td>315</td>
+            <td><span class="status approved">Available</span></td>
+            <td>5</td>
+            <td>
+              <button class="action-btn check-in">View</button>
+              <button class="action-btn reschedule">Schedule</button>
+            </td>
+          </tr>
+          <tr>
+            <td>D1005</td>
+            <td>Dr. Robert Thompson</td>
+            <td>Orthopedics</td>
+            <td>(555) 555-6666</td>
+            <td>220</td>
+            <td><span class="status pending">In Surgery</span></td>
+            <td>3</td>
+            <td>
+              <button class="action-btn check-in">View</button>
+              <button class="action-btn reschedule">Schedule</button>
+            </td>
+          </tr>
+          <tr>
+            <td>D1006</td>
+            <td>Dr. Lisa Clark</td>
+            <td>Rheumatology</td>
+            <td>(555) 666-7777</td>
+            <td>225</td>
+            <td><span class="status approved">Available</span></td>
+            <td>4</td>
+            <td>
+              <button class="action-btn check-in">View</button>
+              <button class="action-btn reschedule">Schedule</button>
+            </td>
+          </tr>
+          <tr>
+            <td>D1007</td>
+            <td>Dr. David Lee</td>
+            <td>Neurology</td>
+            <td>(555) 777-8888</td>
+            <td>312</td>
+            <td><span class="status approved">Available</span></td>
+            <td>7</td>
+            <td>
+              <button class="action-btn check-in">View</button>
+              <button class="action-btn reschedule">Schedule</button>
+            </td>
+          </tr>
+          <tr>
+            <td>D1008</td>
+            <td>Dr. Jennifer Parker</td>
+            <td>Pediatrics</td>
+            <td>(555) 888-9999</td>
+            <td>305</td>
+            <td><span class="status approved">Available</span></td>
+            <td>9</td>
+            <td>
+              <button class="action-btn check-in">View</button>
+              <button class="action-btn reschedule">Schedule</button>
+            </td>
+          </tr>
+          <tr>
+            <td>D1009</td>
+            <td>Dr. Thomas Anderson</td>
+            <td>Psychiatry</td>
+            <td>(555) 999-0000</td>
+            <td>410</td>
+            <td><span class="status pending">With Patient</span></td>
+            <td>6</td>
+            <td>
+              <button class="action-btn check-in">View</button>
+              <button class="action-btn reschedule">Schedule</button>
+            </td>
+          </tr>
+          <tr>
+            <td>D1010</td>
+            <td>Dr. Maria Gonzalez</td>
+            <td>Dermatology</td>
+            <td>(555) 000-1111</td>
+            <td>320</td>
+            <td><span class="status approved">Available</span></td>
+            <td>5</td>
+            <td>
+              <button class="action-btn check-in">View</button>
+              <button class="action-btn reschedule">Schedule</button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="doctor-profile-view" style="display: none;">
+      <div class="header">
+        <div class="patient-banner">
+          <div class="patient-info">
+            <h2 id="doctor-name">Dr. Robert Thompson</h2>
+            <div class="patient-details">
+              <span><strong>ID:</strong> <span id="doctor-id">D1005</span></span>
+              <span><strong>Specialty:</strong> <span id="doctor-specialty">Orthopedics</span></span>
+              <span><strong>Office:</strong> <span id="doctor-office">Room 220</span></span>
+              <span><strong>Phone:</strong> <span id="doctor-phone">(555) 555-6666</span></span>
+            </div>
+          </div>
+          <div class="patient-alerts">
+            <span class="alert allergy" id="doctor-status">In Surgery</span>
+            <span class="alert medication" id="doctor-patients">Patients Today: 3</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="medical-record-tabs">
+        <button class="tab-button active" data-tab="doctor-summary">Summary</button>
+        <button class="tab-button" data-tab="doctor-schedule">Schedule</button>
+        <button class="tab-button" data-tab="doctor-patients">Patients</button>
+        <button class="tab-button" data-tab="doctor-performance">Performance</button>
+        <button class="tab-button" data-tab="doctor-documents">Documents</button>
+      </div>
+
+      <div class="tab-content" id="doctor-summary-tab">
+        <div class="widgets">
+          <div class="widget">
+            <h3>Professional Information</h3>
+            <div class="form-section" style="border-bottom: none; margin-bottom: 0; padding-bottom: 0;">
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Education</label>
+                  <input type="text" id="doctor-education" value="Stanford University School of Medicine" disabled>
+                </div>
+                <div class="form-group">
+                  <label>Board Certification</label>
+                  <input type="text" id="doctor-certification" value="American Board of Orthopedic Surgery" disabled>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Hospital Affiliations</label>
+                  <input type="text" id="doctor-affiliations" value="Hartford General Hospital, Sports Medicine Center" disabled>
+                </div>
+                <div class="form-group">
+                  <label>Years of Experience</label>
+                  <input type="text" id="doctor-experience" value="15" disabled>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="widget">
+            <h3>Contact Information</h3>
+            <div class="form-section" style="border-bottom: none; margin-bottom: 0; padding-bottom: 0;">
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Email</label>
+                  <input type="text" id="doctor-email" value="robert.thompson@hartfordmedical.org" disabled>
+                </div>
+                <div class="form-group">
+                  <label>Direct Line</label>
+                  <input type="text" id="doctor-direct-line" value="(555) 555-6667" disabled>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Office Hours</label>
+                  <input type="text" id="doctor-hours" value="Monday, Thursday, Friday: 7:30 AM - 3:30 PM" disabled>
+                </div>
+                <div class="form-group">
+                  <label>Administrative Assistant</label>
+                  <input type="text" id="doctor-assistant" value="Jennifer Lewis" disabled>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="widget">
+          <h3>Biography</h3>
+          <div class="form-section" style="border-bottom: none; margin-bottom: 0; padding-bottom: 0;">
+            <div class="form-row">
+              <div class="form-group" style="min-width: 100%;">
+                <textarea id="doctor-bio" rows="4" disabled>Dr. Robert Thompson specializes in sports medicine and joint replacement surgery. He has extensive experience treating athletes of all levels and helping patients recover from orthopedic injuries. Dr. Thompson employs the latest minimally invasive techniques to improve outcomes and reduce recovery time.</textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="widget">
+          <h3>Specializations & Clinical Interests</h3>
+          <div class="form-section" style="border-bottom: none; margin-bottom: 0; padding-bottom: 0;">
+            <div class="form-row">
+              <div class="form-group" style="min-width: 100%;">
+                <ul id="doctor-specializations">
+                  <li>Sports Medicine</li>
+                  <li>Joint Replacement Surgery</li>
+                  <li>Arthroscopic Surgery</li>
+                  <li>Knee and Shoulder Reconstruction</li>
+                  <li>Minimally Invasive Surgical Techniques</li>
+                  <li>Athletic Injury Rehabilitation</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="widget">
+          <div class="widget-header">
+            <h3>Today's Schedule</h3>
+            <button class="action-btn check-in">View Full Schedule</button>
+          </div>
+          <table>
+            <thead>
+            <tr>
+              <th>Time</th>
+              <th>Patient</th>
+              <th>Type</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>7:30 AM</td>
+              <td>William Johnson</td>
+              <td>Post-Op Follow-up</td>
+              <td><span class="status approved">Completed</span></td>
+              <td>
+                <button class="action-btn check-in">View Details</button>
+              </td>
+            </tr>
+            <tr>
+              <td>8:15 AM</td>
+              <td>Maria Garcia</td>
+              <td>Initial Consultation</td>
+              <td><span class="status approved">Completed</span></td>
+              <td>
+                <button class="action-btn check-in">View Details</button>
+              </td>
+            </tr>
+            <tr>
+              <td>9:00 AM - 12:00 PM</td>
+              <td colspan="3"><span class="status pending">Surgery: Arthroscopic Knee Procedure</span></td>
+              <td>
+                <button class="action-btn check-in">View Details</button>
+              </td>
+            </tr>
+            <tr>
+              <td>2:00 PM</td>
+              <td>James Taylor</td>
+              <td>New Patient</td>
+              <td><span class="status pending">Scheduled</span></td>
+              <td>
+                <button class="action-btn check-in">Check In</button>
+              </td>
+            </tr>
+            <tr>
+              <td>2:45 PM</td>
+              <td>Sarah Williams</td>
+              <td>Post-Op Follow-up</td>
+              <td><span class="status pending">Scheduled</span></td>
+              <td>
+                <button class="action-btn check-in">Check In</button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="tab-content" id="doctor-schedule-tab" style="display: none;">
+        <div class="widget">
+          <div class="widget-header">
+            <h3>Weekly Schedule</h3>
+            <div>
+              <button class="action-btn check-in">Print Schedule</button>
+              <button class="action-btn reschedule">Edit Schedule</button>
+            </div>
+          </div>
+
+          <div class="calendar-header">
+            <div class="calendar-nav">
+              <button id="prev-week">◀</button>
+            </div>
+            <h2>Week of February 24 - March 1, 2025</h2>
+            <div class="calendar-nav">
+              <button id="next-week">▶</button>
+            </div>
+          </div>
+
+          <table>
+            <thead>
+            <tr>
+              <th>Time</th>
+              <th>Monday (2/24)</th>
+              <th>Tuesday (2/25)</th>
+              <th>Wednesday (2/26)</th>
+              <th>Thursday (2/27)</th>
+              <th>Friday (2/28)</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>7:30 - 8:00</td>
+              <td>Admin Time</td>
+              <td rowspan="8" class="status declined">OFF</td>
+              <td rowspan="8" class="status declined">OFF</td>
+              <td>William Johnson</td>
+              <td>Sarah Parker</td>
+            </tr>
+            <tr>
+              <td>8:15 - 8:45</td>
+              <td>Jessica Martinez</td>
+              <td>John Davis</td>
+              <td>Maria Garcia</td>
+            </tr>
+            <tr>
+              <td>9:00 - 12:00</td>
+              <td rowspan="3" class="status pending">Surgery</td>
+              <td rowspan="3" class="status pending">Surgery</td>
+              <td rowspan="3" class="status pending">Surgery</td>
+            </tr>
+            <tr>
+              <td>12:00 - 1:00</td>
+            </tr>
+            <tr>
+              <td>1:00 - 2:00</td>
+            </tr>
+            <tr>
+              <td>2:00 - 2:30</td>
+              <td>Michael Brown</td>
+              <td>James Taylor</td>
+              <td>Lisa Williams</td>
+            </tr>
+            <tr>
+              <td>2:45 - 3:15</td>
+              <td>Robert Johnson</td>
+              <td>Sarah Williams</td>
+              <td>Thomas Anderson</td>
+            </tr>
+            <tr>
+              <td>3:15 - 3:30</td>
+              <td colspan="3">Admin Time</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="widget">
+          <h3>Upcoming Time Off</h3>
+          <table>
+            <thead>
+            <tr>
+              <th>Start Date</th>
+              <th>End Date</th>
+              <th>Type</th>
+              <th>Status</th>
+              <th>Coverage</th>
+              <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>March 17, 2025</td>
+              <td>March 21, 2025</td>
+              <td>Conference</td>
+              <td><span class="status approved">Approved</span></td>
+              <td>Dr. David Lee</td>
+              <td>
+                <button class="action-btn reschedule">Edit</button>
+                <button class="action-btn cancel">Cancel</button>
+              </td>
+            </tr>
+            <tr>
+              <td>April 5, 2025</td>
+              <td>April 12, 2025</td>
+              <td>Vacation</td>
+              <td><span class="status pending">Pending</span></td>
+              <td>TBD</td>
+              <td>
+                <button class="action-btn reschedule">Edit</button>
+                <button class="action-btn cancel">Cancel</button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="tab-content" id="doctor-patients-tab" style="display: none;">
+        <div class="widget">
+          <div class="widget-header">
+            <h3>Patient Panel</h3>
+            <div class="search-container">
+              <input type="text" placeholder="Search patients..." class="search-input">
+              <button class="action-btn check-in">Search</button>
+            </div>
+          </div>
+          <table>
+            <thead>
+            <tr>
+              <th>Patient ID</th>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Condition</th>
+              <th>Last Visit</th>
+              <th>Next Appointment</th>
+              <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>P10078</td>
+              <td>Robert Johnson</td>
+              <td>58</td>
+              <td>Knee Replacement</td>
+              <td>Feb 26, 2025</td>
+              <td>Mar 5, 2025</td>
+              <td>
+                <button class="action-btn check-in">View Chart</button>
+                <button class="action-btn reschedule">Schedule</button>
+              </td>
+            </tr>
+            <tr>
+              <td>P10092</td>
+              <td>Michael Brown</td>
+              <td>47</td>
+              <td>Back Pain</td>
+              <td>Feb 25, 2025</td>
+              <td>Mar 10, 2025</td>
+              <td>
+                <button class="action-btn check-in">View Chart</button>
+                <button class="action-btn reschedule">Schedule</button>
+              </td>
+            </tr>
+            <tr>
+              <td>P10142</td>
+              <td>James Taylor</td>
+              <td>67</td>
+              <td>Hip Replacement</td>
+              <td>Feb 22, 2025</td>
+              <td>Feb 28, 2025</td>
+              <td>
+                <button class="action-btn check-in">View Chart</button>
+                <button class="action-btn reschedule">Schedule</button>
+              </td>
+            </tr>
+            <tr>
+              <td>P10183</td>
+              <td>Lisa Williams</td>
+              <td>29</td>
+              <td>ACL Tear</td>
+              <td>Feb 20, 2025</td>
+              <td>Feb 28, 2025</td>
+              <td>
+                <button class="action-btn check-in">View Chart</button>
+                <button class="action-btn reschedule">Schedule</button>
+              </td>
+            </tr>
+            <tr>
+              <td>P10201</td>
+              <td>Maria Garcia</td>
+              <td>35</td>
+              <td>Shoulder Dislocation</td>
+              <td>Feb 18, 2025</td>
+              <td>Mar 4, 2025</td>
+              <td>
+                <button class="action-btn check-in">View Chart</button>
+                <button class="action-btn reschedule">Schedule</button>
+              </td>
+            </tr>
+            <tr>
+              <td>P10215</td>
+              <td>William Johnson</td>
+              <td>42</td>
+              <td>Meniscus Tear</td>
+              <td>Feb 14, 2025</td>
+              <td>Mar 5, 2025</td>
+              <td>
+                <button class="action-btn check-in">View Chart</button>
+                <button class="action-btn reschedule">Schedule</button>
+              </td>
+            </tr>
+            <tr>
+              <td>P10230</td>
+              <td>Sarah Williams</td>
+              <td>31</td>
+              <td>Ankle Sprain</td>
+              <td>Feb 10, 2025</td>
+              <td>Feb 28, 2025</td>
+              <td>
+                <button class="action-btn check-in">View Chart</button>
+                <button class="action-btn reschedule">Schedule</button>
+              </td>
+            </tr>
+            <tr>
+              <td>P10246</td>
+              <td>Thomas Anderson</td>
+              <td>55</td>
+              <td>Rotator Cuff Repair</td>
+              <td>Feb 7, 2025</td>
+              <td>Feb 28, 2025</td>
+              <td>
+                <button class="action-btn check-in">View Chart</button>
+                <button class="action-btn reschedule">Schedule</button>
+              </td>
+            </tr>
+            <tr>
+              <td>P10258</td>
+              <td>Sarah Parker</td>
+              <td>28</td>
+              <td>Tennis Elbow</td>
+              <td>Feb 5, 2025</td>
+              <td>Feb 28, 2025</td>
+              <td>
+                <button class="action-btn check-in">View Chart</button>
+                <button class="action-btn reschedule">Schedule</button>
+              </td>
+            </tr>
+            <tr>
+              <td>P10271</td>
+              <td>John Davis</td>
+              <td>39</td>
+              <td>Achilles Tendonitis</td>
+              <td>Feb 3, 2025</td>
+              <td>Mar 3, 2025</td>
+              <td>
+                <button class="action-btn check-in">View Chart</button>
+                <button class="action-btn reschedule">Schedule</button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+          <div class="pagination">
+            <button>Previous</button>
+            <span>Page 1 of 3</span>
+            <button>Next</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content" id="doctor-performance-tab" style="display: none;">
+        <div class="widgets">
+          <div class="widget">
+            <h3>Performance Metrics (Last 30 Days)</h3>
+            <div class="stats-grid">
+              <div class="stat-item">
+                <span class="stat-label">Patient Satisfaction</span>
+                <span class="stat-value">4.8/5.0</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Patients Seen</span>
+                <span class="stat-value">157</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Surgeries Performed</span>
+                <span class="stat-value">23</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Avg. Wait Time</span>
+                <span class="stat-value">12 min</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Follow-up Rate</span>
+                <span class="stat-value">92%</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">No-Show Rate</span>
+                <span class="stat-value">4.2%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="widget chart-container">
+            <h3>Patient Volume Trend</h3>
+            <div class="chart-placeholder">
+              <img src="/api/placeholder/500/250" alt="Line chart showing patient volume over time">
+            </div>
+          </div>
+        </div>
+
+        <div class="widgets">
+          <div class="widget chart-container">
+            <h3>Procedure Mix</h3>
+            <div class="chart-placeholder">
+              <img src="/api/placeholder/500/250" alt="Pie chart showing types of procedures performed">
+            </div>
+          </div>
+
+          <div class="widget chart-container">
+            <h3>Patient Outcomes</h3>
+            <div class="chart-placeholder">
+              <img src="/api/placeholder/500/250" alt="Bar chart showing patient outcomes by procedure type">
+            </div>
+          </div>
+        </div>
+
+        <div class="widget">
+          <h3>Recent Patient Feedback</h3>
+          <table>
+            <thead>
+            <tr>
+              <th>Date</th>
+              <th>Patient</th>
+              <th>Rating</th>
+              <th>Comments</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>Feb 27, 2025</td>
+              <td>Maria Garcia</td>
+              <td>5/5</td>
+              <td>"Dr. Thompson was thorough, compassionate, and explained everything clearly. I felt very comfortable."</td>
+            </tr>
+            <tr>
+              <td>Feb 25, 2025</td>
+              <td>James Taylor</td>
+              <td>5/5</td>
+              <td>"Excellent care from Dr. Thompson. My recovery from surgery was quicker than expected."</td>
+            </tr>
+            <tr>
+              <td>Feb 23, 2025</td>
+              <td>Lisa Williams</td>
+              <td>4/5</td>
+              <td>"Very knowledgeable doctor. Wait time was a bit long, but the care was excellent."</td>
+            </tr>
+            <tr>
+              <td>Feb 20, 2025</td>
+              <td>William Johnson</td>
+              <td>5/5</td>
+              <td>"Dr. Thompson took the time to address all my concerns. I highly recommend him."</td>
+            </tr>
+            <tr>
+              <td>Feb 18, 2025</td>
+              <td>Sarah Parker</td>
+              <td>4/5</td>
+              <td>"Professional and skilled. The office staff was also very helpful."</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="tab-content" id="doctor-documents-tab" style="display: none;">
+        <div class="widget">
+          <div class="widget-header">
+            <h3>Documents & Credentials</h3>
+            <button class="action-btn check-in">Upload Document</button>
+          </div>
+          <table>
+            <thead>
+            <tr>
+              <th>Date</th>
+              <th>Document Type</th>
+              <th>Title</th>
+              <th>Expiration</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>Jan 15, 2025</td>
+              <td>License</td>
+              <td>Medical License - State of Connecticut</td>
+              <td>Jan 15, 2027</td>
+              <td><span class="status approved">Active</span></td>
+              <td>
+                <button class="action-btn check-in">View</button>
+                <button class="action-btn reschedule">Download</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Dec 10, 2024</td>
+              <td>Certification</td>
+              <td>Board Certification - Orthopedic Surgery</td>
+              <td>Dec 10, 2034</td>
+              <td><span class="status approved">Active</span></td>
+              <td>
+                <button class="action-btn check-in">View</button>
+                <button class="action-btn reschedule">Download</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Nov 5, 2024</td>
+              <td>Insurance</td>
+              <td>Malpractice Insurance Policy</td>
+              <td>Nov 5, 2025</td>
+              <td><span class="status approved">Active</span></td>
+              <td>
+                <button class="action-btn check-in">View</button>
+                <button class="action-btn reschedule">Download</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Oct 20, 2024</td>
+              <td>Training</td>
+              <td>Advanced Arthroscopic Techniques Certification</td>
+              <td>N/A</td>
+              <td><span class="status approved">Completed</span></td>
+              <td>
+                <button class="action-btn check-in">View</button>
+                <button class="action-btn reschedule">Download</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Sep 15, 2024</td>
+              <td>CV</td>
+              <td>Curriculum Vitae</td>
+              <td>N/A</td>
+              <td><span class="status approved">Current</span></td>
+              <td>
+                <button class="action-btn check-in">View</button>
+                <button class="action-btn reschedule">Download</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Aug 22, 2024</td>
+              <td>Research</td>
+              <td>Publication: "Advances in Minimally Invasive Knee Surgery"</td>
+              <td>N/A</td>
+              <td><span class="status approved">Published</span></td>
+              <td>
+                <button class="action-btn check-in">View</button>
+                <button class="action-btn reschedule">Download</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Jul 10, 2024</td>
+              <td>CME</td>
+              <td>Continuing Medical Education Credits 2024</td>
+              <td>Dec 31, 2025</td>
+              <td><span class="status pending">In Progress</span></td>
+              <td>
+                <button class="action-btn check-in">View</button>
+                <button class="action-btn reschedule">Download</button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reports Dashboard -->
+    <div id="reports-view" style="display: none;">
+
+      <div class="reports-container">
+        <div class="widget">
+          <h3>Report Type</h3>
+          <div class="report-selector">
+            <select id="report-type">
+              <option value="appointments">Appointment Statistics</option>
+              <option value="patients">Patient Demographics</option>
+              <option value="providers">Provider Performance</option>
+              <option value="billing">Billing Summary</option>
+              <option value="insurance">Insurance Claims</option>
+            </select>
+            <div class="date-range">
+              <label>Date Range:</label>
+              <input type="date" id="report-start-date">
+              <span>to</span>
+              <input type="date" id="report-end-date">
+              <button class="action-btn check-in">Generate Report</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="report-dashboard">
+          <div class="widget chart-container">
+            <h3>Appointments by Provider</h3>
+            <div class="chart-placeholder">
+              <img src="/api/placeholder/500/300" alt="Bar chart showing appointments per provider">
+            </div>
+          </div>
+
+          <div class="widget chart-container">
+            <h3>Appointment Types</h3>
+            <div class="chart-placeholder">
+              <img src="/api/placeholder/500/300" alt="Pie chart showing appointment types">
+            </div>
+          </div>
+
+          <div class="widget">
+            <h3>Key Statistics</h3>
+            <div class="stats-grid">
+              <div class="stat-item">
+                <span class="stat-label">Total Appointments</span>
+                <span class="stat-value">387</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">No-Show Rate</span>
+                <span class="stat-value">4.2%</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Avg. Wait Time</span>
+                <span class="stat-value">12 min</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Busiest Day</span>
+                <span class="stat-value">Tuesday</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Busiest Time</span>
+                <span class="stat-value">10am-12pm</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Insurance Approval</span>
+                <span class="stat-value">92.7%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="widget">
+            <h3>Report Summary</h3>
+            <div class="report-summary">
+              <p>This report covers the period from <strong>February 1, 2025</strong> to <strong>February 28, 2025</strong>.</p>
+              <p>Key insights:</p>
+              <ul>
+                <li>Overall appointment volume increased by 12% compared to previous month</li>
+                <li>Dr. Sarah Johnson had the highest patient load with 96 appointments</li>
+                <li>Annual physicals were the most common appointment type (32%)</li>
+                <li>Insurance approval rate improved by 3.5% from last month</li>
+                <li>Average appointment duration decreased from 42 minutes to 38 minutes</li>
+              </ul>
+              <div class="report-actions">
+                <button class="action-btn check-in">Export to PDF</button>
+                <button class="action-btn reschedule">Export to Excel</button>
+                <button class="action-btn email">Email Report</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Patient Check-in Process -->
+    <div id="checkin-view" style="display: none;">
+      <div class="header">
+        <h1>Patient Check-in</h1>
+      </div>
+
+      <div class="form-container">
+        <div class="form-section">
+          <h3>Appointment Verification</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="verification-patient">Patient</label>
+              <select id="verification-patient">
+                <option value="">-- Select Patient --</option>
+                <option value="P10042" selected>John Smith (9:00 AM - Dr. Johnson)</option>
+                <option value="P10056">Emily Davis (9:30 AM - Dr. Chen)</option>
+                <option value="P10083">Lisa Williams (10:30 AM - Dr. Rodriguez)</option>
+                <option value="P10092">Michael Brown (11:00 AM - Dr. Thompson)</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Appointment Time</label>
+              <input type="text" value="9:00 AM" disabled>
+            </div>
+            <div class="form-group">
+              <label>Current Time</label>
+              <input type="text" value="8:45 AM" disabled>
+            </div>
+            <div class="form-group">
+              <label>Status</label>
+              <input type="text" value="Early (15 min)" disabled class="early-status">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h3>Insurance Verification</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Insurance Provider</label>
+              <input type="text" value="Blue Cross Blue Shield" disabled>
+            </div>
+            <div class="form-group">
+              <label>Member ID</label>
+              <input type="text" value="BCBS12345678" disabled>
+            </div>
+            <div class="form-group">
+              <label>Status</label>
+              <span class="status approved" style="margin-top: 8px; display: inline-block;">Approved</span>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Copay Amount</label>
+              <input type="text" value="$25.00">
+            </div>
+            <div class="form-group">
+              <label>Payment Method</label>
+              <select>
+                <option value="">-- Select Method --</option>
+                <option value="cash">Cash</option>
+                <option value="credit">Credit Card</option>
+                <option value="debit">Debit Card</option>
+                <option value="check">Check</option>
+                <option value="later">Bill Later</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Receipt Needed?</label>
+              <label class="toggle-switch" style="margin-top: 8px;">
+                <input type="checkbox" checked>
+                <span class="slider"></span>
+                Yes
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h3>Pre-Visit Questionnaire</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Has the patient completed the pre-visit questionnaire?</label>
+              <label class="toggle-switch" style="margin-top: 8px;">
+                <input type="checkbox" checked>
+                <span class="slider"></span>
+                Yes
+              </label>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Current Medications</label>
+              <textarea rows="2">Lisinopril 10mg daily, Metformin 500mg twice daily</textarea>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Reason for Visit</label>
+              <textarea rows="2">Annual physical and diabetes follow-up</textarea>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Any changes in health since last visit?</label>
+              <textarea rows="2">Occasional headaches in the morning</textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-buttons">
+          <button class="action-btn cancel">Cancel</button>
+          <button class="action-btn reschedule">Save for Later</button>
+          <button class="action-btn check-in">Complete Check-in</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Patient Medical Record -->
+    <div id="medical-record-view" style="display: none;">
+      <div class="header">
+        <div class="patient-banner">
+          <div class="patient-info">
+            <h2>John Smith</h2>
+            <div class="patient-details">
+              <span><strong>DOB:</strong> 05/15/1982 (42 years)</span>
+              <span><strong>MRN:</strong> P10042</span>
+              <span><strong>PCM:</strong> Dr. Williams</span>
+              <span><strong>Insurance:</strong> Blue Cross</span>
+            </div>
+          </div>
+          <div class="patient-alerts">
+            <span class="alert allergy">ALLERGIES: Penicillin</span>
+            <span class="alert diabetes">Diabetes - Type 2</span>
+            <span class="alert medication">Current Medications: 2</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="medical-record-tabs">
+        <button class="tab-button active" data-tab="summary">Summary</button>
+        <button class="tab-button" data-tab="visits">Visit History</button>
+        <button class="tab-button" data-tab="medications">Medications</button>
+        <button class="tab-button" data-tab="lab-results">Lab Results</button>
+        <button class="tab-button" data-tab="imaging">Imaging</button>
+        <button class="tab-button" data-tab="documents">Documents</button>
+      </div>
+
+      <div class="tab-content" id="summary-tab">
+        <div class="widget">
+          <h3>Recent Vitals (Feb 27, 2025)</h3>
+          <div class="vitals-grid">
+            <div class="vital-item">
+              <span class="vital-label">Blood Pressure</span>
+              <span class="vital-value">128/82 mmHg</span>
+            </div>
+            <div class="vital-item">
+              <span class="vital-label">Heart Rate</span>
+              <span class="vital-value">72 bpm</span>
+            </div>
+            <div class="vital-item">
+              <span class="vital-label">Temperature</span>
+              <span class="vital-value">98.6°F</span>
+            </div>
+            <div class="vital-item">
+              <span class="vital-label">Respiratory Rate</span>
+              <span class="vital-value">16/min</span>
+            </div>
+            <div class="vital-item">
+              <span class="vital-label">Height</span>
+              <span class="vital-value">5'10" (178 cm)</span>
+            </div>
+            <div class="vital-item">
+              <span class="vital-label">Weight</span>
+              <span class="vital-value">182 lbs (82.6 kg)</span>
+            </div>
+            <div class="vital-item">
+              <span class="vital-label">BMI</span>
+              <span class="vital-value">26.1</span>
+            </div>
+            <div class="vital-item">
+              <span class="vital-label">SpO2</span>
+              <span class="vital-value">98%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="widgets">
+          <div class="widget">
+            <h3>Upcoming Appointments</h3>
+            <table>
+              <thead>
+              <tr>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Provider</th>
+                <th>Department</th>
+                <th>Reason</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td>Mar 15, 2025</td>
+                <td>10:30 AM</td>
+                <td>Dr. Michael Chen</td>
+                <td>Endocrinology</td>
+                <td>Diabetes Follow-up</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="widget">
+            <h3>Recent Lab Results</h3>
+            <table>
+              <thead>
+              <tr>
+                <th>Date</th>
+                <th>Test</th>
+                <th>Result</th>
+                <th>Reference Range</th>
+                <th>Status</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td>Feb 20, 2025</td>
+                <td>HbA1c</td>
+                <td>6.8%</td>
+                <td>&lt;5.7%</td>
+                <td><span class="status pending">High</span></td>
+              </tr>
+              <tr>
+                <td>Feb 20, 2025</td>
+                <td>Cholesterol, Total</td>
+                <td>198 mg/dL</td>
+                <td>&lt;200 mg/dL</td>
+                <td><span class="status approved">Normal</span></td>
+              </tr>
+              <tr>
+                <td>Feb 20, 2025</td>
+                <td>HDL Cholesterol</td>
+                <td>45 mg/dL</td>
+                <td>&gt;40 mg/dL</td>
+                <td><span class="status approved">Normal</span></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="widget">
+          <h3>Active Health Issues</h3>
+          <table>
+            <thead>
+            <tr>
+              <th>Condition</th>
+              <th>Onset Date</th>
+              <th>Status</th>
+              <th>Last Updated</th>
+              <th>Provider</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>Type 2 Diabetes Mellitus</td>
+              <td>Jun 12, 2018</td>
+              <td>Active - Controlled</td>
+              <td>Feb 27, 2025</td>
+              <td>Dr. Michael Chen</td>
+            </tr>
+            <tr>
+              <td>Essential Hypertension</td>
+              <td>Aug 03, 2019</td>
+              <td>Active - Controlled</td>
+              <td>Feb 27, 2025</td>
+              <td>Dr. Sarah Johnson</td>
+            </tr>
+            <tr>
+              <td>Hyperlipidemia</td>
+              <td>Aug 03, 2019</td>
+              <td>Active - Monitoring</td>
+              <td>Feb 27, 2025</td>
+              <td>Dr. Sarah Johnson</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Visit History Tab Content -->
+      <div class="tab-content" id="visits-tab" style="display: none;">
+        <div class="widget">
+          <div class="widget-header">
+            <h3>Visit History</h3>
+            <div class="search-container">
+              <input type="text" placeholder="Search visits..." class="search-input">
+              <button class="action-btn check-in">Search</button>
+            </div>
+          </div>
+          <table>
+            <thead>
+            <tr>
+              <th>Date</th>
+              <th>Provider</th>
+              <th>Department</th>
+              <th>Reason</th>
+              <th>Diagnosis</th>
+              <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>Feb 27, 2025</td>
+              <td>Dr. Sarah Johnson</td>
+              <td>Family Medicine</td>
+              <td>Annual Physical</td>
+              <td>Routine physical examination</td>
+              <td><button class="action-btn check-in">View Details</button></td>
+            </tr>
+            <tr>
+              <td>Dec 15, 2024</td>
+              <td>Dr. Michael Chen</td>
+              <td>Endocrinology</td>
+              <td>Diabetes Follow-up</td>
+              <td>Type 2 diabetes mellitus, controlled</td>
+              <td><button class="action-btn check-in">View Details</button></td>
+            </tr>
+            <tr>
+              <td>Sep 23, 2024</td>
+              <td>Dr. Sarah Johnson</td>
+              <td>Family Medicine</td>
+              <td>Hypertension Follow-up</td>
+              <td>Essential hypertension, controlled</td>
+              <td><button class="action-btn check-in">View Details</button></td>
+            </tr>
+            <tr>
+              <td>Jun 18, 2024</td>
+              <td>Dr. Michael Chen</td>
+              <td>Endocrinology</td>
+              <td>Diabetes Follow-up</td>
+              <td>Type 2 diabetes mellitus, controlled</td>
+              <td><button class="action-btn check-in">View Details</button></td>
+            </tr>
+            <tr>
+              <td>Mar 05, 2024</td>
+              <td>Dr. Sarah Johnson</td>
+              <td>Family Medicine</td>
+              <td>Annual Physical</td>
+              <td>Routine physical examination</td>
+              <td><button class="action-btn check-in">View Details</button></td>
+            </tr>
+            </tbody>
+          </table>
+          <div class="pagination">
+            <button>Previous</button>
+            <span>Page 1 of 3</span>
+            <button>Next</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Medications Tab Content -->
+      <div class="tab-content" id="medications-tab" style="display: none;">
+        <div class="widget">
+          <div class="widget-header">
+            <h3>Current Medications</h3>
+            <button class="action-btn check-in">Print Medication List</button>
+          </div>
+
+          <div class="prescription-card">
+            <div class="prescription-status">
+              <span class="status approved">Active</span>
+            </div>
+            <div class="prescription-header">
+              <h4>Lisinopril 10mg</h4>
+              <div>Prescribed by: Dr. Sarah Johnson on Jan 15, 2025</div>
+            </div>
+            <div class="prescription-details">
+              <div class="prescription-detail">
+                <span class="label">Dosage</span>
+                <span>10mg once daily</span>
+              </div>
+              <div class="prescription-detail">
+                <span class="label">Route</span>
+                <span>Oral</span>
+              </div>
+              <div class="prescription-detail">
+                <span class="label">Quantity</span>
+                <span>30 tablets</span>
+              </div>
+              <div class="prescription-detail">
+                <span class="label">Refills</span>
+                <span>3 remaining</span>
+              </div>
+            </div>
+            <div class="prescription-details">
+              <div class="prescription-detail">
+                <span class="label">Instructions</span>
+                <span>Take one tablet by mouth once daily in the morning</span>
+              </div>
+              <div class="prescription-detail">
+                <span class="label">Purpose</span>
+                <span>Treatment of hypertension</span>
+              </div>
+            </div>
+            <div class="prescription-actions">
+              <button class="action-btn check-in">Request Refill</button>
+              <button class="action-btn reschedule">View History</button>
+            </div>
+          </div>
+
+          <div class="prescription-card">
+            <div class="prescription-status">
+              <span class="status approved">Active</span>
+            </div>
+            <div class="prescription-header">
+              <h4>Metformin 500mg</h4>
+              <div>Prescribed by: Dr. Michael Chen on Jan 10, 2025</div>
+            </div>
+            <div class="prescription-details">
+              <div class="prescription-detail">
+                <span class="label">Dosage</span>
+                <span>500mg twice daily</span>
+              </div>
+              <div class="prescription-detail">
+                <span class="label">Route</span>
+                <span>Oral</span>
+              </div>
+              <div class="prescription-detail">
+                <span class="label">Quantity</span>
+                <span>60 tablets</span>
+              </div>
+              <div class="prescription-detail">
+                <span class="label">Refills</span>
+                <span>2 remaining</span>
+              </div>
+            </div>
+            <div class="prescription-details">
+              <div class="prescription-detail">
+                <span class="label">Instructions</span>
+                <span>Take one tablet by mouth twice daily with meals</span>
+              </div>
+              <div class="prescription-detail">
+                <span class="label">Purpose</span>
+                <span>Treatment of type 2 diabetes</span>
+              </div>
+            </div>
+            <div class="prescription-actions">
+              <button class="action-btn check-in">Request Refill</button>
+              <button class="action-btn reschedule">View History</button>
+            </div>
+          </div>
+
+          <div class="widget-header" style="margin-top: 30px;">
+            <h3>Medication History</h3>
+          </div>
+
+          <div class="prescription-card">
+            <div class="prescription-status">
+              <span class="status declined">Discontinued</span>
+            </div>
+            <div class="prescription-header">
+              <h4>Atorvastatin 20mg</h4>
+              <div>Prescribed by: Dr. Sarah Johnson on Jun 05, 2023</div>
+            </div>
+            <div class="prescription-details">
+              <div class="prescription-detail">
+                <span class="label">Dosage</span>
+                <span>20mg once daily</span>
+              </div>
+              <div class="prescription-detail">
+                <span class="label">Route</span>
+                <span>Oral</span>
+              </div>
+              <div class="prescription-detail">
+                <span class="label">Discontinued</span>
+                <span>Nov 12, 2024</span>
+              </div>
+              <div class="prescription-detail">
+                <span class="label">Reason</span>
+                <span>Side effects - muscle pain</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lab Results Tab Content -->
+      <div class="tab-content" id="lab-results-tab" style="display: none;">
+        <div class="widget">
+          <div class="widget-header">
+            <h3>Lab Results</h3>
+            <div>
+              <button class="action-btn check-in">Print Results</button>
+              <button class="action-btn reschedule">Export to PDF</button>
+            </div>
+          </div>
+
+          <div class="lab-result-card">
+            <div class="lab-result-header">
+              <h4>Comprehensive Metabolic Panel + HbA1c</h4>
+              <div class="lab-result-date">Feb 20, 2025</div>
+            </div>
+            <table class="lab-result-table">
+              <thead>
+              <tr>
+                <th>Test</th>
+                <th>Result</th>
+                <th>Reference Range</th>
+                <th>Status</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td>Glucose</td>
+                <td>124 mg/dL</td>
+                <td>70-99 mg/dL</td>
+                <td class="lab-result-abnormal">High</td>
+              </tr>
+              <tr>
+                <td>HbA1c</td>
+                <td>6.8%</td>
+                <td>&lt;5.7%</td>
+                <td class="lab-result-abnormal">High</td>
+              </tr>
+              <tr>
+                <td>BUN</td>
+                <td>15 mg/dL</td>
+                <td>7-20 mg/dL</td>
+                <td class="lab-result-normal">Normal</td>
+              </tr>
+              <tr>
+                <td>Creatinine</td>
+                <td>0.9 mg/dL</td>
+                <td>0.6-1.2 mg/dL</td>
+                <td class="lab-result-normal">Normal</td>
+              </tr>
+              <tr>
+                <td>eGFR</td>
+                <td>92 mL/min</td>
+                <td>&gt;60 mL/min</td>
+                <td class="lab-result-normal">Normal</td>
+              </tr>
+              <tr>
+                <td>Sodium</td>
+                <td>138 mEq/L</td>
+                <td>135-145 mEq/L</td>
+                <td class="lab-result-normal">Normal</td>
+              </tr>
+              <tr>
+                <td>Potassium</td>
+                <td>4.2 mEq/L</td>
+                <td>3.5-5.0 mEq/L</td>
+                <td class="lab-result-normal">Normal</td>
+              </tr>
+              <tr>
+                <td>Chloride</td>
+                <td>102 mEq/L</td>
+                <td>98-107 mEq/L</td>
+                <td class="lab-result-normal">Normal</td>
+              </tr>
+              <tr>
+                <td>CO2</td>
+                <td>24 mEq/L</td>
+                <td>22-29 mEq/L</td>
+                <td class="lab-result-normal">Normal</td>
+              </tr>
+              <tr>
+                <td>Calcium</td>
+                <td>9.3 mg/dL</td>
+                <td>8.5-10.2 mg/dL</td>
+                <td class="lab-result-normal">Normal</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="lab-result-card">
+            <div class="lab-result-header">
+              <h4>Lipid Panel</h4>
+              <div class="lab-result-date">Feb 20, 2025</div>
+            </div>
+            <table class="lab-result-table">
+              <thead>
+              <tr>
+                <th>Test</th>
+                <th>Result</th>
+                <th>Reference Range</th>
+                <th>Status</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td>Cholesterol, Total</td>
+                <td>198 mg/dL</td>
+                <td>&lt;200 mg/dL</td>
+                <td class="lab-result-normal">Normal</td>
+              </tr>
+              <tr>
+                <td>HDL Cholesterol</td>
+                <td>45 mg/dL</td>
+                <td>&gt;40 mg/dL</td>
+                <td class="lab-result-normal">Normal</td>
+              </tr>
+              <tr>
+                <td>LDL Cholesterol</td>
+                <td>128 mg/dL</td>
+                <td>&lt;100 mg/dL</td>
+                <td class="lab-result-abnormal">High</td>
+              </tr>
+              <tr>
+                <td>Triglycerides</td>
+                <td>125 mg/dL</td>
+                <td>&lt;150 mg/dL</td>
+                <td class="lab-result-normal">Normal</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Imaging Tab Content -->
+      <div class="tab-content" id="imaging-tab" style="display: none;">
+        <div class="widget">
+          <div class="widget-header">
+            <h3>Imaging Studies</h3>
+            <button class="action-btn check-in">Request New Study</button>
+          </div>
+          <table>
+            <thead>
+            <tr>
+              <th>Date</th>
+              <th>Study Type</th>
+              <th>Body Region</th>
+              <th>Ordering Provider</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>Jan 05, 2025</td>
+              <td>Chest X-ray</td>
+              <td>Chest</td>
+              <td>Dr. Sarah Johnson</td>
+              <td><span class="status approved">Completed</span></td>
+              <td>
+                <button class="action-btn check-in">View Results</button>
+                <button class="action-btn reschedule">View Images</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Aug 12, 2024</td>
+              <td>Abdominal Ultrasound</td>
+              <td>Abdomen</td>
+              <td>Dr. Michael Chen</td>
+              <td><span class="status approved">Completed</span></td>
+              <td>
+                <button class="action-btn check-in">View Results</button>
+                <button class="action-btn reschedule">View Images</button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Documents Tab Content -->
+      <div class="tab-content" id="documents-tab" style="display: none;">
+        <div class="widget">
+          <div class="widget-header">
+            <h3>Patient Documents</h3>
+            <button class="action-btn check-in">Upload Document</button>
+          </div>
+          <table>
+            <thead>
+            <tr>
+              <th>Date</th>
+              <th>Document Type</th>
+              <th>Title</th>
+              <th>Provider</th>
+              <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>Feb 27, 2025</td>
+              <td>Visit Summary</td>
+              <td>Annual Physical Examination</td>
+              <td>Dr. Sarah Johnson</td>
+              <td>
+                <button class="action-btn check-in">View</button>
+                <button class="action-btn reschedule">Download</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Feb 20, 2025</td>
+              <td>Lab Report</td>
+              <td>Comprehensive Metabolic Panel Results</td>
+              <td>Lab Corp</td>
+              <td>
+                <button class="action-btn check-in">View</button>
+                <button class="action-btn reschedule">Download</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Jan 10, 2025</td>
+              <td>Prescription</td>
+              <td>Metformin Renewal</td>
+              <td>Dr. Michael Chen</td>
+              <td>
+                <button class="action-btn check-in">View</button>
+                <button class="action-btn reschedule">Download</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Dec 15, 2024</td>
+              <td>Visit Summary</td>
+              <td>Diabetes Follow-up</td>
+              <td>Dr. Michael Chen</td>
+              <td>
+                <button class="action-btn check-in">View</button>
+                <button class="action-btn reschedule">Download</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Aug 12, 2024</td>
+              <td>Imaging Report</td>
+              <td>Abdominal Ultrasound Results</td>
+              <td>Dr. James Wilson</td>
+              <td>
+                <button class="action-btn check-in">View</button>
+                <button class="action-btn reschedule">Download</button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+  <div id="cookie-notice" class="cookie-notice" style="display: none;">
+    <div class="cookie-content">
+      <h3>Cookie Consent</h3>
+      <p>This website uses cookies to improve your experience. Medical and other sensitive information will not be stored in cookies.</p>
+      <div class="cookie-options">
+        <button id="accept-necessary" class="cookie-btn secondary">Accept Necessary Only</button>
+        <button id="accept-all" class="cookie-btn primary">Accept All Cookies</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="legal-notice">
+        <a href="#" id="privacy-policy">Privacy Policy</a>
+        <a href="#" id="terms-of-service">Terms of Service</a>
+        <a href="#" id="accessibility">Accessibility</a>
+      </div>
+      <div class="copyright">
+        &copy; 2025 Hartford Medical Portal. Created by Corbin Babcock for Northeastern University.
+      </div>
+    </div>
+  </footer>
+</div>
+
+<button class="settings-button" id="settings-toggle">Appearance Settings</button>
+
+<div class="settings-panel" id="settings-panel">
+  <div class="settings-group">
+    <h3>Color Theme</h3>
+    <div class="color-option" style="background-color: #1976d2;" data-theme="default"></div>
+    <div class="color-option" style="background-color: #8e24aa;" data-theme="purple"></div>
+    <div class="color-option" style="background-color: #2e7d32;" data-theme="green"></div>
+    <div class="color-option" style="background-color: #d32f2f;" data-theme="red"></div>
+    <div class="color-option" style="background-color: #f57c00;" data-theme="orange"></div>
+  </div>
+
+  <div class="settings-group">
+    <h3>Mode</h3>
+    <label class="toggle-switch">
+      <input type="checkbox" id="dark-mode-toggle">
+      <span class="slider"></span>
+      Dark Mode
+    </label>
+    <label class="toggle-switch">
+      <input type="checkbox" id="high-contrast-toggle">
+      <span class="slider"></span>
+      High Contrast
+    </label>
+  </div>
+
+  <div class="settings-group">
+    <h3>Colorblind Support</h3>
+    <button id="protanopia">Protanopia</button>
+    <button id="deuteranopia">Deuteranopia</button>
+    <button id="tritanopia">Tritanopia</button>
+    <button id="normal-color">Normal</button>
+  </div>
+
+  <div class="settings-group">
+    <h3>Font Size</h3>
+    <div class="font-size-buttons">
+      <button id="font-decrease">A-</button>
+      <button id="font-default">Reset</button>
+      <button id="font-increase">A+</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/dashbaord.js"></script>
